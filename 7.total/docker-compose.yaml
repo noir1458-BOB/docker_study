@@ -1,0 +1,36 @@
+services:
+  my-app-green:
+    image: my-app:latest
+    environment:
+      - APP_COLOR=green
+    ports:
+      - "8001:5000"
+    networks:
+      - my-colorful-app
+  my-app-red:
+    image: my-app:latest
+    environment:
+      - APP_COLOR=red
+    ports:
+      - "8002:5000"
+    networks:
+      - my-colorful-app
+  my-app-orange:
+    image: my-app:latest
+    environment:
+      - APP_COLOR=orange
+    ports:
+      - "8003:5000"
+    networks:
+      - my-colorful-app
+  my-nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    networks:
+      - my-colorful-app
+    volumes:
+      - ./my-nginx.conf:/etc/nginx/conf.d/default.conf
+
+networks:
+  my-colorful-app:

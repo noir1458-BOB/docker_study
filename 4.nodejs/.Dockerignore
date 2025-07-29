@@ -1,0 +1,5 @@
+.dockerignore
+Dockerfile
+
+# 각종 바이너리들이 들어가야함
+node_modules/
